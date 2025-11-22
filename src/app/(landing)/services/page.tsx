@@ -2,9 +2,12 @@
 
 function ServicePage() {
   return (
-    <div>
-      <h1>ServicePage</h1>
-    </div>
+    <section>
+      <div>
+        <div>search</div>
+        <div>filter</div>
+      </div>
+    </section>
   )
 }
 
