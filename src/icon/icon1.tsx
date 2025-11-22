@@ -299,7 +299,7 @@ export const ChangeIcon = ({ props, className }: IconProps) => (
   </svg>
 );
 
-export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export const FacebookIcon = ({ props, className }: IconProps) => (
   <svg
     id="FacebookIcon"
     width="50"
@@ -308,6 +308,7 @@ export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
+    className={className}
   >
     <rect width="50" height="50" rx="25" fill="white" fillOpacity="0.12" />
     <path
@@ -317,7 +318,7 @@ export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export const InstagramIcon = ({ props, className }: IconProps) => (
   <svg
     id="InstagramIcon"
     width="50"
@@ -326,6 +327,7 @@ export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
+    className={className}
   >
     <rect width="50" height="50" rx="25" fill="white" fillOpacity="0.12" />
     <path
@@ -335,7 +337,7 @@ export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const YoutubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export const YoutubeIcon = ({ props, className }: IconProps) => (
   <svg
     id="YoutubeIcon"
     width="50"
@@ -344,6 +346,7 @@ export const YoutubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
+    className={className}
   >
     <rect width="50" height="50" rx="25" fill="white" fillOpacity="0.12" />
     <path
