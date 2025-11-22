@@ -1,38 +1,38 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import assets from "@/assets";
 
 const satoshi = localFont({
   src: [
     {
-      path: './fonts/Satoshi-Black.otf',
-      weight: '900',
-      style: 'normal',
+      path: "./fonts/Satoshi-Black.otf",
+      weight: "900",
+      style: "normal",
     },
     {
-      path: './fonts/Satoshi-Bold.otf',
-      weight: '700',
-      style: 'normal',
+      path: "./fonts/Satoshi-Bold.otf",
+      weight: "700",
+      style: "normal",
     },
     {
-      path: './fonts/Satoshi-Medium.otf',
-      weight: '500',
-      style: 'normal',
+      path: "./fonts/Satoshi-Medium.otf",
+      weight: "500",
+      style: "normal",
     },
     {
-      path: './fonts/Satoshi-Regular.otf',
-      weight: '400',
-      style: 'normal',
+      path: "./fonts/Satoshi-Regular.otf",
+      weight: "400",
+      style: "normal",
     },
     {
-      path: './fonts/Satoshi-Light.otf',
-      weight: '300',
-      style: 'normal',
+      path: "./fonts/Satoshi-Light.otf",
+      weight: "300",
+      style: "normal",
     },
   ],
-  variable: '--font-satoshi',
+  variable: "--font-satoshi",
 });
-
 
 export const metadata: Metadata = {
   title: "Liam~website",
@@ -46,9 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={satoshi.variable}>
-      <body suppressHydrationWarning>
-        {children}
-      </body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
