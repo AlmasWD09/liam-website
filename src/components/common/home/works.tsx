@@ -1,15 +1,12 @@
-import React from 'react'
-import CustomContainer from '../reusable/container/CustomContainer'
-import CustomTitle from '../reusable/CustomTitle'
-import { WorksIcon } from '../custom-icons'
+import SubTitle from '@/components/reusable/title'
 import Image from 'next/image'
 
-function WorksComponent() {
+function Works() {
     return (
         <div className="pt-[148px] mb-20">
-            <CustomContainer>
+            <div className='container'>
                 <div className="pb-8">
-                    <CustomTitle text={'How it works'} svgIcon={<WorksIcon />} />
+                    <SubTitle text="How it works"/>
                 </div>
 
                 <div className='flex justify-center items-center gap-3'>
@@ -59,9 +56,9 @@ function WorksComponent() {
 
 
                 </div>
-            </CustomContainer>
+            </div>
         </div >
     )
 }
 
-export default WorksComponent 
+export default Works

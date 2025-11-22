@@ -1,19 +1,23 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  images: {
-    domains: ['randomuser.me', '103.186.20.114'],
+   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
-        {
-        protocol: 'https',   
-        hostname: 'randomuser.me',
+      {
+        protocol: "https",
+        hostname: "**",
       },
       {
-        protocol: 'http',
-        hostname: '103.186.20.114',
-        pathname: '/uploads/rooms/**',  // Adjust this pattern if needed
+        protocol: "http",
+        hostname: "**",
       },
     ],
+  },
+
+  // ✔ Remove console logs in production
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
   },
 };
 

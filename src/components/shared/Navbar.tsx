@@ -1,11 +1,10 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
-import CustomButton from "../reusable/button/CustomButton"
 import { usePathname } from "next/navigation"
-import CustomContainer from "../reusable/container/CustomContainer"
+import { Button } from "../ui"
+
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -55,7 +54,7 @@ const Navbar = () => {
     return (
         <>
             <header className="sticky top-0 z-50 w-full bg-secondary  backdrop-blur-md border-gray-200 ">
-                <CustomContainer>
+                <div className="container">
                     <div className="flex h-16 items-center justify-between">
                         {/* Logo Section */}
                         <div className="">
@@ -87,7 +86,7 @@ const Navbar = () => {
 
                         {/* Desktop Actions */}
                         <div className="hidden md:flex items-center space-x-3">
-                            <CustomButton text={'Create an account'} onClick={() => handleCreateAccount()} />
+                              <Button onClick={() => handleCreateAccount()}>Create an account</Button>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -108,7 +107,7 @@ const Navbar = () => {
                             </button>
                         </div>
                     </div>
-                </CustomContainer>
+                </div>
             </header>
 
             {/* Mobile Overlay */}
@@ -164,7 +163,7 @@ const Navbar = () => {
 
                     {/* Mobile Footer */}
                     <div className="p-4 border-t border-gray-200  mt-auto">
-                        <CustomButton text={'Create an account'} onClick={() => handleCreateAccount()} />
+                        <Button onClick={() => handleCreateAccount()}>Create an account</Button>
                     </div>
                 </div>
             </div>
