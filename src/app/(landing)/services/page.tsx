@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import Link from "next/link"
 
 
 interface Service {
@@ -80,10 +81,10 @@ const services: Service[] = [
 export default function ServicePage() {
   const [searchText, setSearchText] = useState('')
   return (
-    <div className="container py-12">
+    <div className="container px-4 py-12">
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-        <div className="relative bg-secondary md:w-[60%] rounded-lg">
+        <div className="relative bg-secondary md:w-[40%] rounded-lg">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 " />
           <Input
             placeholder="Search by vendor name or service title"
@@ -98,12 +99,11 @@ export default function ServicePage() {
             <FilterIcon /> Sort by
           </DropdownMenuTrigger>
           <DropdownMenuContent className="md:mr-4">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuLabel>Highest price</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            <DropdownMenuItem>Lowest price</DropdownMenuItem>
+            <DropdownMenuItem>Highest rating</DropdownMenuItem>
+            <DropdownMenuItem>Lowest rating </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
@@ -166,11 +166,12 @@ export default function ServicePage() {
                     </div>
                   </div>
 
-
-                  <Button className=" bg-white text-black font-bold" size={"lg"} icon={false}>
-                    Order
-                    <ArrowBlackRightIcon className="text-black" />
-                  </Button>
+                  <Link href={`/services/${service.id}`}>
+                    <Button className=" bg-white text-black font-bold" size={"lg"} icon={false}>
+                      Order
+                      <ArrowBlackRightIcon className="text-black" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
