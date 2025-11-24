@@ -82,7 +82,7 @@ export default function TopService() {
                         {services.map((service) => (
                             <div
                                 key={service.id}
-                                className="bg-secondary rounded-lg overflow-hidden  transition "
+                                className="bg-secondary rounded-[16px] overflow-hidden  transition "
                             >
                                 {/* Service Image */}
                                 <div className="relative w-full h-64 bg-muted overflow-hidden">
@@ -90,7 +90,7 @@ export default function TopService() {
                                         src={service.image}
                                         alt={"photo"}
                                         fill
-                                        className="object-cover rounded-lg transition duration-300"
+                                        className="object-cover rounded-[16px] transition duration-300"
                                     />
                                 </div>
 

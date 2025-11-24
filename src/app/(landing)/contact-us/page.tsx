@@ -51,7 +51,7 @@ const ContactUs: React.FC = () => {
                 <div className="mt-6 xl:mt-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:px-40">
                         {/* Left Column - Contact Information */}
-                        <div className="space-y-4 bg-secondary flex flex-col justify-center px-4 md:px-8 py-6 rounded-lg h-[350px]">
+                        <div className="space-y-4 bg-secondary flex flex-col justify-center px-4 md:px-8 py-6 rounded-[16px] h-[350px]">
                             {/* Address 1 */}
                             <div className="flex items-center gap-4">
                                 <div className="self-start">
@@ -112,7 +112,7 @@ const ContactUs: React.FC = () => {
                                             message: 'Name must be at least 2 characters',
                                         },
                                     })}
-                                    className={`w-full px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all ${errors.name ? 'border-red-500' : 'border-gray-200'
+                                    className={`w-full px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 bg-gray-50 border rounded-[16px] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all ${errors.name ? 'border-red-500' : 'border-gray-200'
                                         }`}
                                 />
                                 {errors.name && (
@@ -136,7 +136,7 @@ const ContactUs: React.FC = () => {
                                             message: 'Invalid email address',
                                         },
                                     })}
-                                    className={`w-full px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all ${errors.email ? 'border-red-500' : 'border-gray-200'
+                                    className={`w-full px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 bg-gray-50 border rounded-[16px] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all ${errors.email ? 'border-red-500' : 'border-gray-200'
                                         }`}
                                 />
                                 {errors.email && (
@@ -160,7 +160,7 @@ const ContactUs: React.FC = () => {
                                             message: 'Message must be at least 10 characters',
                                         },
                                     })}
-                                    className={`w-full px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 bg-gray-50 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none ${errors.message ? 'border-red-500' : 'border-gray-200'
+                                    className={`w-full px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 bg-gray-50 border rounded-[16px] focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none ${errors.message ? 'border-red-500' : 'border-gray-200'
                                         }`}
                                 ></textarea>
                                 {errors.message && (

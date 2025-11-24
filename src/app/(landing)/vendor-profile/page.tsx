@@ -117,7 +117,7 @@ const VendorProfile: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     {/* Left Sidebar - Vendor Profile */}
                     <div className="lg:col-span-3">
-                        <div className="bg-white rounded-lg p-6 shadow-sm">
+                        <div className="bg-white rounded-[16px] p-6 shadow-sm">
                             {/* Profile Image */}
                             <div className="flex justify-center mb-4">
                                 <img
@@ -147,7 +147,7 @@ const VendorProfile: React.FC = () => {
                             </div>
 
                             {/* Message Button */}
-                            <button className="w-full bg-white border border-gray-300 text-gray-700 py-2.5 px-4 rounded-lg text-sm font-medium mb-6 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                            <button className="w-full bg-white border border-gray-300 text-gray-700 py-2.5 px-4 rounded-[16px] text-sm font-medium mb-6 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                                 <span>💬</span>
                                 <span>Message</span>
                             </button>
@@ -221,7 +221,7 @@ const VendorProfile: React.FC = () => {
                                     {packages.map((pkg) => (
                                         <div
                                             key={pkg.id}
-                                            className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                                            className="border border-gray-200 rounded-[16px] overflow-hidden hover:shadow-md transition-shadow"
                                         >
                                             {/* Package Image */}
                                             <div className="relative h-48">
@@ -259,7 +259,7 @@ const VendorProfile: React.FC = () => {
                                                     </span>
                                                 </div>
 
-                                                <button className="w-full mt-4 bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                                                <button className="w-full mt-4 bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-[16px] text-sm font-medium hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                                                     <span>Order now</span>
                                                     <span>→</span>
                                                 </button>
@@ -272,7 +272,7 @@ const VendorProfile: React.FC = () => {
                                     {reviews.map((review) => (
                                         <div
                                             key={review.id}
-                                            className="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
+                                            className="border border-gray-200 rounded-[16px] p-5 hover:shadow-md transition-shadow"
                                         >
                                             <div className="flex items-start justify-between mb-3">
                                                 <div className="flex items-center gap-3">

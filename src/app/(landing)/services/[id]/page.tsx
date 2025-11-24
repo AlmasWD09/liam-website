@@ -61,7 +61,7 @@ export default function PackageDetails() {
                                 src={assets.service1}
                                 alt={"photo"}
                                 fill
-                                className="object-cover rounded-lg transition duration-300"
+                                className="object-cover rounded-[16px] transition duration-300"
                             />
                         </div>
 
@@ -160,7 +160,7 @@ export default function PackageDetails() {
 
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                                         {addOns.map((addon) => (
-                                            <div key={addon.id} className="flex items-center justify-between p-3 bg-secondary rounded-lg">
+                                            <div key={addon.id} className="flex items-center justify-between p-3 bg-secondary rounded-[16px]">
 
                                                 <div className="flex-1 ">
                                                     <div className="text-xs text-gray-900 mb-1 flex justify-evenly items-center gap-5">{addon.label}

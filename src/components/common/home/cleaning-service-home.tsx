@@ -9,12 +9,12 @@ import { ArrowBlackRightIcon, ArrowRightIcon } from '@/icon'
 
 const CleaningServiceHome = () => {
     return (
-        <div className='mt-[120px] xl:mt-[120px]'>
-            <div className=' my-6'>
-                <div className='relative bg-secondary rounded-[58px] xl:w-[1180px] mx-auto h-auto xl:h-[290px] flex flex-col justify-center items-center'>
+        <div className='mt-[60px] lg:mt-[120px]'>
+            <div className='px-4 my-6'>
+                <div className='relative bg-secondary rounded-[30px] md:rounded-[58px] py-4 md:py-10 lg:py-10 px-10  md:max-w-[600px] lg:max-w-[700px] xl:max-w-[1180px] mx-auto h-auto xl:h-[290px] flex flex-col justify-center items-center'>
 
                     <div className='space-y-6  '>
-                        <div className='flex flex-col md:flex-row justify-center items-center'>
+                        <div className='flex flex-col lg:flex-row justify-center items-center md:gap-4 lg:gap-0'>
                             <h1 className='text-[20px] xl:text-[36px] text-center font-bold text-[#000000]'>The Easiest Way to Book Premium</h1>
                             <span className=''>
                                 <svg className='w-[250px] h-[40px] md:h-[60px] md:w-[250px]' width="334" height="85" viewBox="0 0 334 85" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,17 +27,17 @@ const CleaningServiceHome = () => {
                                 </svg>
                             </span>
                         </div>
-                        <p className='text-center'>Effortless booking for clients. Guaranteed business growth for top-tier cleaning vendors. Find or offer the best cleaning services in NYC, all in one place.</p>
-                        <div className='flex flex-col md:flex-row justify-center items-center gap-4'>
-                            <Button icon={true} className='w-[300px] font-bold '>Continue as user</Button>
-                            <Button icon={false} className='w-[300px] font-bold bg-transparent border border-gray-200 text-black'>Are You a Service Provider? Join Us!
+                        <p className='text-center md:max-w-[600px] lg:max-w-[700px] xl:max-w-[1180px] mx-auto'>Effortless booking for clients. Guaranteed business growth for top-tier cleaning vendors. Find or offer the best cleaning services in NYC, all in one place.</p>
+                        <div className='flex flex-col lg:flex-row justify-center items-center gap-4'>
+                            <Button icon={true} className='w-[270px] md:w-[300px] md:font-bold '>Continue as user</Button>
+                            <Button icon={false} className='w-[270px] md:w-[300px] md:font-bold bg-transparent border border-gray-200 text-black'>Are You a Service Provider? Join Us!
                                 <ArrowBlackRightIcon className='text-black' />
                             </Button>
                         </div>
                     </div>
 
                     {/* food photo */}
-                    <Image src={photo1} alt='photo' width={400} height={400} className='absolute -top-24 -z-10 -right-26 w-[200px] h-[200px] object-cover' />
+                    <Image src={photo1} alt='photo' width={400} height={400} className='absolute -top-11 md:-top-12 lg:-top-24 -z-10 -right-2 md:-right-10 lg:-right-26 w-[80px] md:w-[100px] lg:w-[200px] lg:h-[200px] object-cover' />
                 </div>
             </div>
         </div>
