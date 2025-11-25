@@ -8,7 +8,6 @@ import { Button, Table } from "@/components/ui";
 import FavIcon from "@/favicon/favicon";
 import { cn, RandomImg } from "@/lib";
 import useConfirmation from "@/provider/confirmation";
-import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 

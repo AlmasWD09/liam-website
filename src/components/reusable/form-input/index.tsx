@@ -57,7 +57,7 @@ export function FromInput({
             <Label
               htmlFor={inputId}
               className={cn(
-                "text-blacks text-base font-medium  mb-1",
+                "text-black text-base font-medium  mb-1",
                 stylelabel
               )}
             >
@@ -68,7 +68,8 @@ export function FromInput({
             <Input
               id={inputId}
               className={cn(
-                `h-13 w-full border-none placeholder:text-black bg-white rounded-[16px] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${icon ? "pl-10" : "pl-4"
+                `h-13 w-full border-none placeholder:text-black bg-white rounded-2xl [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
+                  icon ? "pl-10" : "pl-4"
                 } ${eye ? "pr-10" : "pr-3"} text-blacks`,
                 className
               )}
