@@ -78,4 +78,4 @@ const CustomersSay = () => {
   );
 };
 
-export default CustomersSay
+export default CustomersSay;
