@@ -1,16 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Bell } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import FavIcon from "@/favicon/favicon";
+import IconBox from "../reusable/Icon-box";
+import Avatars from "../reusable/avater";
 
 export default function VendorNav() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", icon: "home_ven", icon_i: " home_ven_i", href: "/vendor" },
+    { name: "Home", icon: "home_ven", icon_i: "home_ven_i", href: "/vendor" },
     {
       name: "Bookings",
       icon: "bookings_ven",
@@ -38,9 +42,9 @@ export default function VendorNav() {
   ];
 
   return (
-    <nav className="bg-secondary text-primary-foreground sticky top-0 z-50">
-      <div className="container">
-        <div className="flex justify-between items-center h-16">
+    <nav className="bg-secondary sticky top-0 z-50 text-primary-foreground">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center h-17 py-3">
           {/* Logo */}
           <Image
             src="/images/logo.png"
@@ -50,84 +54,98 @@ export default function VendorNav() {
             className="rounded-md"
           />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`px-3 py-2 bg-white rounded-md text-[#535353]  font-medium transition-colors ${
-                  item.name === "Home"
-                    ? "bg-blue-500 text-white"
-                    : "hover:bg-primary-foreground/10"
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.name}</span>
-                </div>
-              </Link>
-            ))}
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-3">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`px-3 py-2 rounded-md font-medium transition 
+                    flex items-center gap-2
+                    ${
+                      isActive
+                        ? "bg-primary text-white"
+                        : "bg-white text-[#535353]"
+                    }`}
+                >
+                  <FavIcon name={isActive ? item.icon_i : (item.icon as any)} />
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
 
-          {/* Right Side Actions */}
+          {/* Right Side */}
           <div className="hidden md:flex items-center gap-4">
-            <button className="p-2 rounded-lg hover:bg-primary-foreground/10 transition-colors">
-              <Bell className="w-5 h-5" />
-            </button>
+            <IconBox className="rounded-md">
+              <FavIcon name="chat_cc" />
+            </IconBox>
+            <IconBox className="rounded-md">
+              <FavIcon name="noti" />
+            </IconBox>
+
             <div className="flex items-center gap-3">
-              <Avatar className="w-8 h-8">
-                <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=Elizabeth" />
-                <AvatarFallback>EO</AvatarFallback>
-              </Avatar>
-              <div className="text-sm">
+              <Avatars
+                src=""
+                fallback="P"
+                alt="profile"
+                className="rounded-md"
+                fallbackStyle="rounded-md bg-white text-black"
+              />
+              <div className=" text-black leading-5 mb-1">
                 <p className="font-semibold">Elizabeth Olson</p>
-                <p className="text-xs opacity-75">example@gmail.com</p>
+                <p>example@gmail.com</p>
               </div>
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg hover:bg-primary-foreground/10 transition-colors"
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 cursor-pointer rounded-lg transition"
+          >
+            {isOpen ? (
+              <X className="w-6 h-6 text-black" />
+            ) : (
+              <Menu className="w-6 h-6 text-black" />
+            )}
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors block w-full ${
-                  item.name === "Home"
-                    ? "bg-blue-500 text-white"
-                    : "hover:bg-primary-foreground/10"
-                }`}
-              >
-                <item.icon className="w-4 h-4" />
-                <span>{item.name}</span>
-              </a>
-            ))}
-            <div className="px-3 py-2 border-t border-primary-foreground/20 mt-2 pt-3">
+          <div className="md:hidden pb-4 space-y-2 animate-slideDown">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`flex items-center gap-2 px-3 py-2 text-black rounded-md text-sm font-medium transition 
+                    ${isActive && "bg-primary text-white"}`}
+                >
+                  <FavIcon name={isActive ? item.icon_i : (item.icon as any)} />
+                  {item.name}
+                </Link>
+              );
+            })}
+
+            {/* Mobile Profile */}
+            <div className="py-3 border-t border-primary-foreground/20 mt-2">
               <div className="flex items-center gap-3">
-                <Avatar className="w-8 h-8">
-                  <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=Elizabeth" />
-                  <AvatarFallback>EO</AvatarFallback>
-                </Avatar>
-                <div className="text-sm">
+                <Avatars
+                  src=""
+                  fallback="P"
+                  className="rounded-md"
+                  fallbackStyle="rounded-md bg-white text-black"
+                  alt="profile"
+                />
+                <div className=" text-black leading-5 mb-1">
                   <p className="font-semibold">Elizabeth Olson</p>
-                  <p className="text-xs opacity-75">example@gmail.com</p>
+                  <p>example@gmail.com</p>
                 </div>
               </div>
             </div>
