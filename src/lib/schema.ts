@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { number, z } from "zod";
 
 //  === sign_In ==
 export const sign_In = z.object({
@@ -77,7 +77,9 @@ export const contact_us = z.object({
 export const booking_screma = z.object({
   name: z.string().nonempty("Name is required"),
   email: z.string().nonempty("Email is required"),
+  phone_number: z.string().nonempty("Phone number is required"),
   address: z.string().nonempty("Address is required"),
+  message: z.string().optional(),
 });
 
 
