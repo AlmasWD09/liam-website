@@ -74,6 +74,12 @@ export const contact_us = z.object({
   message: z.string().nonempty("Message is required"),
 });
 
+export const booking_screma = z.object({
+  name: z.string().nonempty("Name is required"),
+  email: z.string().nonempty("Email is required"),
+  address: z.string().nonempty("Address is required"),
+});
+
 
 // // === change_Pass ===
 // export const change_Pass = z

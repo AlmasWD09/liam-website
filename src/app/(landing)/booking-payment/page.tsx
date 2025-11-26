@@ -1,18 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  User,
-  Mail,
-  Phone,
-  MapPin,
-  CreditCard,
-  Star,
-  Plus,
-  X,
-} from "lucide-react";
+import { CreditCard, Star } from "lucide-react";
 import Image from "next/image";
-import { CheckIcon, DeleteIcon } from "@/icon";
+import {
+  CheckIcon,
+  DeleteIcon,
+  EmailIcon,
+  LocationFieldIcon,
+  LocationIcon,
+  UserIcon,
+} from "@/icon";
+import assets from "@/assets";
+import { Button } from "@/components/ui";
+import { FieldValues, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { booking_screma } from "@/lib";
+import Form from "@/components/reusable/from";
+import { FromInput } from "@/components/reusable/form-input";
 
 interface AddOn {
   id: number;
@@ -35,6 +40,19 @@ const BookingPayment: React.FC = () => {
     setAddOns(addOns.filter((addon) => addon.id !== id));
   };
 
+  const from = useForm({
+    resolver: zodResolver(booking_screma),
+    defaultValues: {
+      name: "",
+      email: "",
+      address: "",
+    },
+  });
+
+  const handleSubmit = async (values: FieldValues) => {
+    console.log(values);
+  };
+
   return (
     <div className=" bg-white py-8 ">
       <div className="container px-4">
@@ -46,81 +64,58 @@ const BookingPayment: React.FC = () => {
           {/* Left Column - Billing Details */}
           <div className="lg:col-span-8 space-y-6">
             {/* Billing Details Section */}
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-base font-semibold mb-6">Billing details</h2>
+            <div className="border border-gray-200 rounded-lg   top-8">
+              <h2 className="text-base font-semibold border-b border-gray-200 p-4">
+                Billing details
+              </h2>
 
-              <div className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-normal text-gray-900 mb-2">
-                      Your full name
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        placeholder="Enter your full name here"
-                        className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                    </div>
+              <div className="space-y-5 p-4">
+                <Form
+                  className="space-y-3  "
+                  from={from}
+                  onSubmit={handleSubmit}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <FromInput
+                      label="Name"
+                      name="name"
+                      placeholder="Enter your full name here"
+                      icon={<UserIcon />}
+                      className="h-[50px]  bg-secondary  placeholder:text-muted-foreground"
+                      stylelabel="text-lg"
+                    />
+
+                    <FromInput
+                      label="Email"
+                      name="email"
+                      placeholder="Enter your email"
+                      icon={<EmailIcon />}
+                      className="h-[50px]  bg-secondary  placeholder:text-muted-foreground"
+                      stylelabel="text-lg"
+                    />
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-normal text-gray-900 mb-2">
-                      Email address
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                    </div>
-                  </div>
-                </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <FromInput
+                      label="Phone number"
+                      name="phone"
+                      type="number"
+                      placeholder="Enter your phone number"
+                      icon={<UserIcon />}
+                      className="h-[50px]  bg-secondary  placeholder:text-muted-foreground"
+                      stylelabel="text-lg"
+                    />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-normal text-gray-900 mb-2">
-                      Phone number
-                    </label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="tel"
-                        placeholder="Enter your phone number"
-                        className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                    </div>
+                    <FromInput
+                      label="Address"
+                      name="location"
+                      placeholder="Enter your address"
+                      icon={<LocationFieldIcon />}
+                      className="h-[50px]  bg-secondary  placeholder:text-muted-foreground"
+                      stylelabel="text-lg"
+                    />
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-normal text-gray-900 mb-2">
-                      Address
-                    </label>
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        placeholder="Enter your address"
-                        className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-normal text-gray-900 mb-2">
-                    Additional note{" "}
-                    <span className="text-gray-400 font-normal">Optional</span>
-                  </label>
-                  <textarea
-                    placeholder="Write your note here if you want to tell something to the vendor"
-                    rows={3}
-                    className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                  />
-                </div>
+                </Form>
               </div>
             </div>
 
@@ -291,60 +286,46 @@ const BookingPayment: React.FC = () => {
                           <CheckIcon />
                         </div>
 
-                        <button
-                          onClick={() => removeAddOn(addon.id)}
-                          className="w-7 h-7 rounded bg-red-500 flex items-center justify-center hover:bg-red-600 transition-colors"
-                        >
+                        <button onClick={() => removeAddOn(addon.id)}>
                           <DeleteIcon />
                         </button>
                       </div>
                     ))}
                   </div>
                 </div>
-              </div>
 
-              {/* Vendor */}
-              <div className="mb-6 pb-6 border-b border-gray-200">
-                <h3 className="text-sm font-semibold mb-3">Vendor</h3>
-                <div className="flex items-center gap-3">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop"
-                    alt="Vendor"
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
-                  <div>
-                    <p className="text-sm font-medium">John Doe</p>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                      <span className="text-xs text-gray-600">4.5</span>
+                {/* Vendor */}
+                <div className="mb-6 pb-6 ">
+                  <h3 className="text-sm font-semibold mb-3">Vendor</h3>
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src={assets.userPhoto1}
+                      alt="Vendor"
+                      width={40}
+                      height={40}
+                      className="w-20 h-20 rounded-full object-cover"
+                    />
+                    <div>
+                      <p className="text-sm font-medium">John Doe</p>
+                      <div className="flex items-center gap-1">
+                        <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                        <span className="text-xs text-gray-600">4.5</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Subtotal and Button */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-700">Subtotal:</span>
-                  <span className="text-xl font-semibold">${subtotal}</span>
+              <div className="pt-4 px-4 border-t border-gray-200 my-6">
+                <div className="flex items-center justify-between  ">
+                  <span className="font-semibold text-gray-900">
+                    Subtotal: $245
+                  </span>
+                  <Button className="" size="lg" icon={true}>
+                    Continue
+                  </Button>
                 </div>
-
-                <button className="w-full bg-cyan-400 hover:bg-cyan-500 text-white font-medium py-3 px-4 rounded-md transition-colors flex items-center justify-center gap-2 text-sm">
-                  Order now
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
               </div>
             </div>
           </div>
