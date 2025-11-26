@@ -1,5 +1,3 @@
-
-
 export interface childrenProps {
   children: React.ReactNode;
 }
@@ -16,4 +14,3 @@ export interface Args {
   id?: any;
   arg?: Record<string, any>;
 }
-

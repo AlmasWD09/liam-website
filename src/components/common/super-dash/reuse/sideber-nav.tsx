@@ -58,7 +58,7 @@ export default function SidebarNav({
               <SelectItem key={item.to} value={item.to}>
                 <div className="flex items-center gap-x-4 px-2 py-0!">
                   <FavIcon
-                    className="size-4"
+                    className="size-5"
                     name={isActive(item.to) ? item.act_io : item.icon}
                   />
                   <span className="font-medium">{item.label}</span>
@@ -86,7 +86,7 @@ export default function SidebarNav({
               key={item.to}
               href={item.to}
               className={`flex items-center space-x-1 py-2 hover:bg-figma-deletepy-1.5 px-2 rounded-full ${
-                isActive(item.to) && "bg-figma-delete font-medium"
+                isActive(item.to) && "bg-secondary font-medium"
               }`}
             >
               <FavIcon
