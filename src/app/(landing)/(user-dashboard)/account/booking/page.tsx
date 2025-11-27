@@ -103,7 +103,7 @@ const BookingPage = () => {
               <div>
                 <ul className="list-disc list-inside">
                   <li
-                    className={` text-white font-medium text-center text-sm  py-2 rounded-[20px] ${booking.status === "pending" ? "bg-[#8A38F5]" : "bg-[#2A7FFF]"}`}
+                    className={` text-white font-medium text-center text-sm  py-2 rounded-figma-sm ${booking.status === "pending" ? "bg-[#8A38F5]" : "bg-[#2A7FFF]"}`}
                   >
                     {booking.status}
                   </li>
