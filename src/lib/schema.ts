@@ -99,6 +99,13 @@ export const package_store = z.object({
   services: z.array(z.string()).nonempty("Services is required"),
 });
 
+export const set_store = z.object({
+  title: z.string().nonempty("Title is required"),
+  price: z.string().nonempty("Price is required"),
+  about: z.string().nonempty("About is required"),
+  date: z.iso.date().nonempty("Date is required"),
+});
+
 // // === change_Pass ===
 // export const change_Pass = z
 //   .object({

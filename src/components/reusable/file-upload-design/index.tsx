@@ -32,7 +32,7 @@ export default function FilePreviewDesign({
       ) : (
         <div className="text-center mx-auto">
           <p className="text-blacks mb-2 text-sm">{title}</p>
-          <p className="text-gray-400 font-medium mb-4 text-xs">Or</p>
+          <p className="text-gray-400 font-medium mb-4 text-xs">OR</p>
 
           <Button onClick={openFileDialog} type="button">
             Browse files
