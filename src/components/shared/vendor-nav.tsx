@@ -90,19 +90,21 @@ export default function VendorNav() {
               </IconBox>
             </Link>
 
-            <div className="flex items-center gap-3">
-              <Avatars
-                src=""
-                fallback="P"
-                alt="profile"
-                className="rounded-md"
-                fallbackStyle="rounded-md bg-white text-black"
-              />
-              <div className=" text-black leading-5 mb-1">
-                <p className="font-semibold">Elizabeth Olson</p>
-                <p>example@gmail.com</p>
+            <Link href="/vendor/account">
+              <div className="flex items-center gap-3">
+                <Avatars
+                  src=""
+                  fallback="P"
+                  alt="profile"
+                  className="rounded-md"
+                  fallbackStyle="rounded-md bg-white text-black"
+                />
+                <div className=" text-black leading-5 mb-1">
+                  <p className="font-semibold">Elizabeth Olson</p>
+                  <p>example@gmail.com</p>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
