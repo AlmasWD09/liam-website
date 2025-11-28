@@ -60,7 +60,9 @@ export default function Login() {
         </div>
 
         <div>
-          <Button className="w-full"> Login</Button>
+          <Link href={"/"}>
+            <Button className="w-full"> Login</Button>
+          </Link>
         </div>
       </Form>
 
