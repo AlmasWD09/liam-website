@@ -175,13 +175,6 @@ const Notification = () => {
         ))}
       </div>
 
-      {/* <Button
-        onClick={() => setDeliveryReModal("isDReq", true)}
-        className="text-xl font-semibold"
-      >
-        Notification
-      </Button> */}
-
       {/* add delivery req */}
       <Modal2
         open={deliveryReModal.isDReq}

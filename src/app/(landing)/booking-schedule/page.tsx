@@ -6,6 +6,7 @@ import { Button } from "@/components/ui";
 import { CheckIcon, DeleteIcon } from "@/icon";
 import { Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 interface AddOn {
@@ -13,6 +14,11 @@ interface AddOn {
   label: string;
   price: number;
 }
+
+const intState = {
+  isDReq: false,
+  isFedb: false,
+};
 
 const BookingSchedule = () => {
   const [addOns, setAddOns] = useState<AddOn[]>([
@@ -134,9 +140,11 @@ const BookingSchedule = () => {
                   <span className="font-semibold text-gray-900">
                     Subtotal: $245
                   </span>
-                  <Button className="" size="lg" icon={true}>
-                    Next
-                  </Button>
+                  <Link href={"/booking-payment"}>
+                    <Button className="" size="lg" icon={true}>
+                      Next
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

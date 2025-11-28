@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { CreditCard, Star } from "lucide-react";
+import { CreditCard, Star, X } from "lucide-react";
 import Image from "next/image";
 import {
   CheckIcon,
+  CVCIcon,
   DeleteIcon,
   EmailIcon,
+  FeedbackCheckIcon,
   LocationFieldIcon,
   LocationIcon,
   PhoneIpfIcon,
@@ -21,6 +23,9 @@ import { booking_screma } from "@/lib";
 import Form from "@/components/reusable/from";
 import { FromInput } from "@/components/reusable/form-input";
 import { FromTextArea } from "@/components/reusable/from-textarea";
+import { useGlobalState } from "@/hooks";
+import Modal2 from "@/components/reusable/modal2";
+import Link from "next/link";
 
 interface AddOn {
   id: number;
@@ -28,7 +33,13 @@ interface AddOn {
   price: number;
 }
 
+const intState = {
+  isDReq: false,
+  isFedb: false,
+};
+
 const BookingPayment: React.FC = () => {
+  const [deliveryReModal, setDeliveryReModal] = useGlobalState(intState);
   const [saveCard, setSaveCard] = useState(false);
   const [addOns, setAddOns] = useState<AddOn[]>([
     { id: 1, label: "Add-on number 1", price: 50 },
@@ -53,6 +64,14 @@ const BookingPayment: React.FC = () => {
       message: "",
     },
   });
+
+  const watchedValues = from.watch();
+
+  const isFormValid =
+    watchedValues.name?.trim() !== "" &&
+    watchedValues.email?.trim() !== "" &&
+    watchedValues.phone_number?.trim() !== "" &&
+    watchedValues.address?.trim() !== "";
 
   const handleSubmit = async (values: FieldValues) => {
     console.log(values);
@@ -130,106 +149,122 @@ const BookingPayment: React.FC = () => {
               </div>
 
               {/* Payment Method Section */}
-              <div className="border border-gray-200 rounded-lg   top-8">
-                <h2 className="text-base border-b border-gray-200 p-4">
-                  Payment method
-                </h2>
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between ">
+                  <h2 className="text-lg sm:text-xl font-normal text-gray-700">
+                    Card information
+                  </h2>
+                  <ScreenCardIcon />
+                </div>
 
-                <div className="space-y-5 p-4">
-                  <div>
-                    <div className="flex justify-between items-center">
-                      <p className="block text-sm font-normal text-gray-900 mb-2">
-                        Card information
-                      </p>
-                      <span>
-                        <ScreenCardIcon />
-                      </span>
-                    </div>
-                    <div className="relative">
-                      <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                {/* Card Information Section */}
+                <div className="border border-gray-300 rounded-lg overflow-hidden mb-6">
+                  {/* Card Number Field */}
+                  <div className="border-b border-gray-300">
+                    <div className="flex items-center justify-between px-4">
                       <input
                         type="text"
-                        placeholder="1234 5678 9012 3456"
-                        className="w-full pl-10 pr-12 py-2.5 text-sm border border-gray-300 rounded-md "
+                        placeholder="Card information"
+                        className="flex-1 text-base outline-none"
                       />
-                      <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                      <div className="flex gap-2 ml-4">
                         <Image
                           src={assets.paymentCard}
                           alt="photo"
-                          className="w-[70px] h-[70px] object-contain rounded-md"
+                          width={40}
+                          height={40}
+                          className="w-[50px] h-[50px]  object-contain rounded-md"
                         />
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-normal text-gray-900 mb-2">
-                        MM/YY
-                      </label>
+                  {/* Expiry and CVC Fields */}
+                  <div className="flex">
+                    <div className="flex-1 border-r border-gray-300 p-4">
                       <input
                         type="text"
                         placeholder="MM/YY"
-                        className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-md "
+                        className="w-full text-base outline-none"
                       />
                     </div>
+                    <div className="flex-1 p-4 flex items-center justify-between">
+                      <input
+                        type="text"
+                        placeholder="CVC"
+                        className="flex-1 text-base outline-none"
+                      />
+                      <CVCIcon />
+                    </div>
+                  </div>
+                </div>
 
-                    <div>
-                      <label className="block text-sm font-normal text-gray-900 mb-2">
-                        CVC
-                      </label>
-                      <div className="relative">
-                        <input
-                          type="text"
-                          placeholder="123"
-                          className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-md "
-                        />
-                        <CreditCard className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                {/* Billing Address Section */}
+                <h3 className="text-lg sm:text-xl font-normal text-gray-700 mb-2">
+                  Billing address
+                </h3>
+
+                <div className="border border-gray-300 rounded-lg overflow-hidden mb-6">
+                  {/* Country Field */}
+                  <div className="border-b border-gray-300 p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <p className="text-sm text-gray-600 mb-1">
+                          Country or region
+                        </p>
+                        <p className="text-base font-medium">United States</p>
                       </div>
+                      <svg
+                        className="w-5 h-5 text-gray-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-normal text-gray-900 mb-2">
-                      Billing address
-                    </label>
-                    <select className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-md  text-gray-900">
-                      <option>Country or region</option>
-                      <option>United States</option>
-                    </select>
-                  </div>
-
-                  <div>
+                  {/* ZIP Field */}
+                  <div className="p-4">
                     <input
                       type="text"
-                      placeholder="United States"
-                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-md "
+                      placeholder="ZIP"
+                      className="w-full text-base outline-none"
                     />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-normal text-gray-900 mb-2">
-                      ZIP
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-md "
-                    />
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      id="saveCard"
-                      checked={saveCard}
-                      onChange={(e) => setSaveCard(e.target.checked)}
-                      className="w-4 h-4 rounded border-gray-300"
-                    />
-                    <label htmlFor="saveCard" className="text-sm text-gray-700">
-                      Save this card for future payment
-                    </label>
                   </div>
                 </div>
+
+                {/* Save Card Checkbox */}
+                <div className="flex items-center gap-3 mb-6">
+                  <input
+                    type="checkbox"
+                    id="saveCard"
+                    checked={saveCard}
+                    onChange={(e) => setSaveCard(e.target.checked)}
+                    className="w-5 h-5 border-2 border-gray-300 rounded cursor-pointer"
+                  />
+                  <label
+                    htmlFor="saveCard"
+                    className="text-base text-gray-700 cursor-pointer"
+                  >
+                    Save this card for future payment
+                  </label>
+                </div>
+
+                <Button
+                  // onClick={() => setPaymentModal("isEdit", false)}
+                  size="lg"
+                  className="w-full"
+                >
+                  Save changes
+                </Button>
               </div>
             </div>
 
@@ -328,7 +363,13 @@ const BookingPayment: React.FC = () => {
                     <span className="font-semibold text-gray-900">
                       Subtotal: $245
                     </span>
-                    <Button className="" size="lg" icon={true}>
+                    <Button
+                      onClick={() => setDeliveryReModal("isFedb", true)}
+                      className=""
+                      size="lg"
+                      icon={true}
+                      disabled={!isFormValid}
+                    >
                       Order now
                     </Button>
                   </div>
@@ -338,6 +379,37 @@ const BookingPayment: React.FC = () => {
           </div>
         </Form>
       </div>
+
+      <Modal2
+        open={deliveryReModal.isFedb}
+        setIsOpen={(v: any) => setDeliveryReModal("isFedb", v)}
+        title=""
+        titleStyle="text-center"
+        className="sm:max-w-xl"
+      >
+        <div
+          className="absolute top-3 right-4 cursor-pointer"
+          onClick={() => setDeliveryReModal("isFedb", false)}
+        >
+          <X className="text-black" />
+        </div>
+        <div className="flex flex-col justify-center items-center pb-4 space-y-6">
+          <FeedbackCheckIcon />
+          <h1 className="text-center xl:text-[20px] font-bold text-[#2D9D1E]">
+            Order placed successfully
+          </h1>
+          <p className="text-center">
+            Your order has been placed successfully. It’s in under review <br />{" "}
+            for now. Please be patient until vendor accepts it.
+          </p>
+
+          <Link href={"/"} className="w-full">
+            <Button className="w-full" size="lg" icon={true}>
+              Go home
+            </Button>
+          </Link>
+        </div>
+      </Modal2>
     </div>
   );
 };

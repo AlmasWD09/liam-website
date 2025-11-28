@@ -8,7 +8,7 @@ import Link from "next/link";
 import IconBox from "../reusable/Icon-box";
 import FavIcon from "@/favicon/favicon";
 import Avatars from "../reusable/avater";
-import assets from "@/assets";
+import assets, { loginUser } from "@/assets";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,9 +33,6 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  // const loginUser = "kodom_ali";
-  const loginUser = null;
 
   return (
     <>
