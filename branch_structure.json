@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "almas",
+    "julfiker",
+    "main"
+  ],
+  "parent": {
+    "almas": "main",
+    "julfiker": "main",
+    "main": null
+  },
+  "order": [
+    "main",
+    "almas",
+    "julfiker"
+  ]
+}
