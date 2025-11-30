@@ -58,7 +58,7 @@ export default function Login() {
   };
   return (
     <div className="w-11/12 lg:max-w-4xl bg-secondary rounded-figma-sm p-4 lg:p-10 my-30 mx-auto">
-      <SubTitle text="User Login" svg={false} />
+      <SubTitle text="Login" svg={false} />
       <Form className="space-y-4 pt-8" from={from} onSubmit={handleSubmit}>
         <FromInput
           className="h-11"
