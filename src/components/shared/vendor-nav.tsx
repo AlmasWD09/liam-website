@@ -38,6 +38,18 @@ export default function VendorNav() {
       icon_i: "inventory_ven_i",
       href: "/vendor/inventory",
     },
+    {
+      name: "About Us",
+      icon: "about_us_cc",
+      icon_i: "about_us_cc_i",
+      href: "/vendor/about-us",
+    },
+    {
+      name: "How is works",
+      icon: "work_cc",
+      icon_i: "work_cc_i",
+      href: "/vendor/works",
+    },
   ];
 
   return (

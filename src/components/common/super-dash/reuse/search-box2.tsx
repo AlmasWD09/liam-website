@@ -1,7 +1,7 @@
 const SearchBox2 = () => {
   return (
     <div>
-      <div className="w-full max-w-4xl mx-auto ">
+      <div className="px-4 ">
         <div className="h-11 flex items-center bg-white  rounded-lg overflow-hidden">
           <input
             type="text"

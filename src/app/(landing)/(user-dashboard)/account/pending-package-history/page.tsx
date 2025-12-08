@@ -59,13 +59,11 @@ const PendingPackageHistory = () => {
               </div>
             </div>
           </div>
-
           {/* Date */}
           <div className="">
             <h3 className="text-sm font-semibold mb-2">Date</h3>
             <p className="text-xs text-gray-600">17th November, 2025</p>
           </div>
-
           {/* Add-ons */}
           <div className="">
             <h3 className="text-sm font-semibold pb-2">Add-ons</h3>
@@ -89,7 +87,6 @@ const PendingPackageHistory = () => {
               ))}
             </div>
           </div>
-
           {/* Vendor */}
           <div className="mb-6 pb-6 ">
             <h3 className="text-sm font-semibold mb-3">Vendor</h3>
@@ -121,8 +118,14 @@ const PendingPackageHistory = () => {
               </div>
             </div>
           </div>
-
           <Button className="w-full bg-[#FF5445]">X Cancel order</Button>
+          <div className="flex flex-col md:flex-row justify-center items-center">
+            <h2>Before canceling any order please read our</h2>
+            <span className="text-[#FF5445] font-semibold underline underline-offset-2 pl-2">
+              {" "}
+              Cancelation policy
+            </span>
+          </div>
         </div>
       </div>
     </div>

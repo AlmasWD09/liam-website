@@ -134,6 +134,9 @@ export const set_store = z.object({
   about: z.string().nonempty("About is required"),
   date: z.iso.date().nonempty("Date is required"),
 });
+export const book_uc = z.object({
+    service_categories: z.array(z.string()).min(1, "At least one Service category is required"),
+});
 
 // // === change_Pass ===
 // export const change_Pass = z
