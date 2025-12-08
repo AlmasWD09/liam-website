@@ -1098,3 +1098,30 @@ export const ClserviceIcon = (props: React.SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
+export const PaymentHistoryIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    id="PaymentHistoryIcon"
+    width="50"
+    height="50"
+    viewBox="0 0 50 50"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <rect width="50" height="50" rx="25" fill="white" />
+    <path
+      d="M32.8801 20.078L24.9991 24.81M17.9871 30.452L23.7371 33.9C24.1182 34.129 24.5544 34.25 24.9991 34.25C25.4437 34.25 25.88 34.129 26.2611 33.9L32.0111 30.452C32.3771 30.233 32.6811 29.922 32.8911 29.551C33.0961 29.181 33.2061 28.765 33.2091 28.341V21.278C33.2109 20.8507 33.1014 20.4303 32.8913 20.0582C32.6812 19.6862 32.3779 19.3752 32.0111 19.156L26.2611 16.091C25.8779 15.8681 25.4424 15.7507 24.9991 15.7507C24.5557 15.7507 24.1203 15.8681 23.7371 16.091L17.9871 19.156C17.6204 19.3751 17.3172 19.6859 17.1071 20.0578C16.8971 20.4297 16.7875 20.8499 16.7891 21.277V28.342C16.7921 28.765 16.9021 29.181 17.1071 29.551C17.3171 29.922 17.6211 30.233 17.9871 30.452Z"
+      stroke="#535353"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinecap="round"
+    />
+    <path
+      d="M17.1172 20.078L24.9982 24.81V34.25M29.3782 25.934V22.179L21.0642 17.522"
+      stroke="#535353"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinecap="round"
+    />
+  </svg>
+);
