@@ -8,12 +8,6 @@ import workLeftPhoto3 from "@/assets/works/work-left3.png";
 import workLeftPhoto4 from "@/assets/works/work-left4.png";
 import workLeftPhoto5 from "@/assets/works/work-left5.png";
 
-// right side image
-import workRightPhoto1 from "@/assets/works/work-right1.png";
-import workRightPhoto2 from "@/assets/works/work-right2.png";
-import workRightPhoto3 from "@/assets/works/work-right3.png";
-import workRightPhoto4 from "@/assets/works/work-right4.png";
-import workRightPhoto5 from "@/assets/works/work-right5.png";
 import SubTitle from "@/components/reusable/title";
 import { ImgBox } from "@/components/reusable/Img-box";
 
@@ -22,7 +16,6 @@ interface Step {
   title: string;
   description: string;
   image: StaticImageData;
-  image2: StaticImageData;
 }
 
 const Works: React.FC = () => {
@@ -33,7 +26,6 @@ const Works: React.FC = () => {
       description:
         "Browse our clear service catalog. Choose direct purchase for common documents (like certificates) or select complex services requiring a custom consultation.",
       image: workLeftPhoto1,
-      image2: workRightPhoto1,
     },
     {
       id: 2,
@@ -41,7 +33,6 @@ const Works: React.FC = () => {
       description:
         "For direct purchases, use our secure custom checkout. For complex requests (like specialized attestation), fill out a quick form to get your tailored quote fast.",
       image: workLeftPhoto2,
-      image2: workRightPhoto2,
     },
     {
       id: 3,
@@ -49,7 +40,6 @@ const Works: React.FC = () => {
       description:
         "Follow the simple, clear instructions provided to securely upload or send us the required supporting documents for processing.",
       image: workLeftPhoto3,
-      image2: workRightPhoto3,
     },
     {
       id: 4,
@@ -57,7 +47,6 @@ const Works: React.FC = () => {
       description:
         "Our expert team validates your documents, manages the entire submission process with the relevant authorities, and ensures your apostille or necessary legal certification is correctly issued.",
       image: workLeftPhoto4,
-      image2: workRightPhoto4,
     },
     {
       id: 5,
@@ -65,7 +54,6 @@ const Works: React.FC = () => {
       description:
         "Your final, certified document is promptly delivered to you, ready for international use, stress-free.",
       image: workLeftPhoto5,
-      image2: workRightPhoto5,
     },
   ];
 
@@ -105,11 +93,9 @@ const Works: React.FC = () => {
 
                 {/* Step Number */}
                 <div>
-                  <ImgBox
-                    src={step.image2}
-                    alt="photo"
-                    className="w-16 h-16 "
-                  />
+                  <h1 className="text-[60px] font-bold text-[#535353] pr-10">
+                    {index + 1}
+                  </h1>
                 </div>
               </div>
 

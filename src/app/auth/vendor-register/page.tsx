@@ -112,9 +112,11 @@ export default function VendorRegister() {
           icon={<LockIcon />}
         />
 
-        <Button type="submit" className="w-full" size="lg">
-          Register as Vendor
-        </Button>
+        <Link href={"/auth/submit-documents"}>
+          <Button type="submit" className="w-full" size="lg">
+            Next
+          </Button>
+        </Link>
       </Form>
 
       {/* Social login section */}
@@ -124,7 +126,9 @@ export default function VendorRegister() {
             <span className="w-full border-t border-gray-200" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="bg-secondary px-2 text-figma-secondary">or continue with</span>
+            <span className="bg-secondary px-2 text-figma-secondary">
+              or continue with
+            </span>
           </div>
         </div>
 
@@ -134,7 +138,10 @@ export default function VendorRegister() {
 
         <p className="text-center text-figma-secondary">
           Already have an account?{" "}
-          <Link href="/auth" className="inline-flex items-center font-medium hover:underline">
+          <Link
+            href="/auth"
+            className="inline-flex items-center font-medium hover:underline"
+          >
             Login here <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
         </p>

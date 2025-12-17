@@ -15,6 +15,8 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import Modal from "@/components/reusable/modal";
 import FavIcon from "@/favicon/favicon";
+import { ImgBox } from "@/components/reusable/Img-box";
+import { ApproveVendorReqIcon, DeleteVendorReqIcon } from "@/icon";
 
 const data = [
   {
@@ -296,6 +298,28 @@ export default function VendorRequests() {
                 70 Washington Square South, New York, NY 10012, United States
               </span>
             </h1>
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-2">
+            <ImgBox
+              src={"/images/vendor-request1.png"}
+              alt="vendor request photo"
+              className="w-full md:w-[50%] h-[130px] rounded-figma-sm!"
+            />
+            <ImgBox
+              src={"/images/vendor-request2.png"}
+              alt="vendor request photo"
+              className="w-full md:w-[50%] h-[130px] rounded-figma-sm!"
+            />
+          </div>
+          <div className=" flex flex-col md:flex-row items-center gap-2 ">
+            <button className="cursor-pointer w-full md:w-[50%] flex items-center justify-center gap-2 h-12 text-white bg-[#FF5445] rounded-[10px]">
+              <DeleteVendorReqIcon />
+              Decline
+            </button>
+            <button className="cursor-pointer w-full md:w-[50%] h-12 flex items-center justify-center gap-2 text-white bg-[#2D9D1E] rounded-[10px]">
+              <ApproveVendorReqIcon />
+              Approve
+            </button>
           </div>
         </div>
       </Modal>
